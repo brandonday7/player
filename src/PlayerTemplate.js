@@ -89,7 +89,7 @@ class Player extends React.Component {
       <div className="player-container">
         <SongDisplay trackDetails={currentTrack}/>
         <div style={{marginLeft: "5em", display: "flex"}}>
-        <SelectionController nextTrack={this.nextTrack} prevTrack={this.prevTrack} pausePlay={this.pausePlay} pause={playing}/>
+        <SelectionController nextTrack={this.nextTrack} prevTrack={this.prevTrack} pausePlay={this.pausePlay} playing={playing}/>
         </div>
         <MediaPlayer playing={playing} mediaUrl={currentTrack.mediaUrl}/>
       </div>

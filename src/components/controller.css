@@ -5,7 +5,7 @@
 	width: 10em;
 }
 
-p {
-	color: #adadad;
+.change-song {
 	cursor: pointer;
+	font-size: 120%;
 }

@@ -4,8 +4,8 @@ import { faPauseCircle } from '@fortawesome/free-solid-svg-icons'
 import { faPlayCircle } from '@fortawesome/free-solid-svg-icons'
 import "./play.css"
 
-const PlayController = ({ pause, onClick}) => (
-	<FontAwesomeIcon className="icon" onClick={onClick} icon={pause ? faPauseCircle : faPlayCircle}/>
+const PlayController = ({ playing, onClick}) => (
+	<FontAwesomeIcon className="icon" onClick={onClick} icon={playing ? faPauseCircle : faPlayCircle}/>
 )
 
 export default PlayController
