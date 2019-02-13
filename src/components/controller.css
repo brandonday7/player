@@ -1,5 +1,11 @@
 .controller-container {
 	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.buttons-container {
+	display: flex;
 	justify-content: space-between;
 	align-items: center;
 	width: 10em;
@@ -7,4 +13,20 @@
 
 .change-song {
 	font-size: 150%;
+}
+
+.slide-render-container {
+	width: 20em;
+	height: 0.4em;
+	border-radius: 50px;
+	background-color: #404040;
+	margin-top: 1em;
+}
+
+.slide-progress {
+	height: 0.4em;
+	width: 10em;
+	border-radius: 50px;
+	background-color: #adadad;
+	position: absolute;
 }
