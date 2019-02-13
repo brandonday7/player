@@ -19,8 +19,8 @@ const SelectionController = ({ nextTrack, prevTrack, pausePlay, playing}) => (
 		  direction={Direction.HORIZONTAL}
 		  isEnabled
 		  onChange={newValue => console.log(`clicked at ${newValue}`)}
-		  onChangeStart={startValue => console.log(`started dragging at ${startValue}`)}
-		  onChangeEnd={endValue => console.log(`stopped dragging at ${endValue}`)}
+		  onChangeStart={pausePlay}
+		  onChangeEnd={pausePlay}
   >
   	<SlideRender />
 		</Slider>

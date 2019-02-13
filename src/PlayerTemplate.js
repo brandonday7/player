@@ -57,11 +57,15 @@ class Player extends React.Component {
     this.state = {
       playing: false,
       currentTrackIndex: 0,
-      finalTrackIndex: this.tracks.length - 1
+      finalTrackIndex: this.tracks.length - 1,
+      trackDuration: 0,
+      currentTime: 0
     }
   }
 
   pausePlay = () => this.setState({ playing: !this.state.playing })
+
+  setTime = (variable, timeInput) => this.setState({ [variable]: timeInput})
 
   getCurrentTrack = () => {
     const {currentTrackIndex} = this.state
@@ -84,15 +88,24 @@ class Player extends React.Component {
   }
 
   render() {
-    const {playing, currentTrackIndex} = this.state
+    const {playing, currentTrackIndex, currentTime, trackDuration} = this.state
     const currentTrack = this.getCurrentTrack()
     return (
       <div className="player-container">
         <SongDisplay trackDetails={currentTrack}/>
-        <div style={{marginLeft: "5em", display: "flex"}}>
-        <SelectionController nextTrack={this.nextTrack} prevTrack={this.prevTrack} pausePlay={this.pausePlay} playing={playing}/>
-        </div>
-        <MediaPlayer playing={playing} mediaUrl={currentTrack.mediaUrl}/>
+        <SelectionController 
+          nextTrack={this.nextTrack} 
+          prevTrack={this.prevTrack} 
+          pausePlay={this.pausePlay} 
+          playing={playing} 
+          currentTime={currentTime} 
+          trackDuration={trackDuration}
+        />
+        <MediaPlayer 
+          playing={playing} 
+          mediaUrl={currentTrack.mediaUrl} 
+          setTime={this.setTime}
+        />
       </div>
     );
   }
@@ -102,17 +115,25 @@ class Player extends React.Component {
 Library documentation: https://www.npmjs.com/package/react-player
 */
 class MediaPlayer extends React.Component {
+  ref = player => {
+    this.player = player
+  }
+
   render() {
     const {playing, mediaUrl} = this.props
     return (
       <div>
         <ReactPlayer
-          ref="reactPlayer"
+          ref={this.ref}
           playing={playing}
           height={'0px'}
           width={'0px'}
           config={{ file: { forceAudio: true } }}
-          url={mediaUrl} /> 
+          url={mediaUrl} 
+          onSeek={(x, y, z) => console.log(x, y, z)}
+          // onProgress={(x) => console.log(x)} 
+        />
+        <p onClick={() => this.player.seekTo(0.5)} style={{transform: "translateX(-5em)"}}>HEY</p>
       </div>
     )
   }
