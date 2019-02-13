@@ -3,6 +3,7 @@ import { render } from "react-dom"
 import ReactPlayer from 'react-player'
 import PlayController from "./components/PlayController.js"
 import SongDisplay from "./components/SongDisplay.js"
+import SelectionController from "./components/SelectionController.js"
 
 /*
 The goal is to create an audio player, similar to what you'd find at the bottom of the Spotify app.
@@ -31,10 +32,6 @@ Notes:
 class Player extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      playing: false,
-      currentTrack: 1
-    }
     // This is the 'playlist' of tracks that we're playing/pausing, navigating through, etc.
     this.tracks = [
       {
@@ -54,22 +51,37 @@ class Player extends React.Component {
         durationMilliseconds: 30000
       },
     ];
+
+    this.state = {
+      playing: false,
+      currentTrackIndex: 0
+    }
   }
 
   pausePlay = () => this.setState({ playing: !this.state.playing })
 
   getCurrentTrack = () => {
-    const {currentTrack} = this.state
-    return this.tracks.find(track => track.id === currentTrack)
+    const {currentTrackIndex} = this.state
+    const currentTrack = this.tracks[currentTrackIndex]
+    return this.tracks.find(track => track.id === currentTrack.id)
+  }
+
+  nextTrack = () => {
+    const { currentTrackIndex } = this.state
+    const lastTrackIndex = this.tracks.length - 1
+    const nextTrackIndex = currentTrackIndex !== lastTrackIndex ? currentTrackIndex + 1 : 0
+    this.setState({ currentTrackIndex: nextTrackIndex })
   }
 
   render() {
-    const {playing, currentTrack} = this.state
+    const {playing, currentTrackIndex} = this.state
+    const currentTrack = this.getCurrentTrack()
     return (
       <div>
-        <MediaPlayer playing={playing} currentTrack={currentTrack}/>
+        <MediaPlayer playing={playing} mediaUrl={currentTrack.mediaUrl}/>
         <PlayController onClick={this.pausePlay} label={playing ? "Pause" : "Play"}/>
-        <SongDisplay trackDetails={this.getCurrentTrack()}/>
+        <SongDisplay trackDetails={currentTrack}/>
+        <SelectionController nextTrack={this.nextTrack} prevTrack={this.prevTrack}/>
       </div>
     );
   }
@@ -80,7 +92,7 @@ Library documentation: https://www.npmjs.com/package/react-player
 */
 class MediaPlayer extends React.Component {
   render() {
-    const {playing} = this.props
+    const {playing, mediaUrl} = this.props
     return (
       <div>
         <ReactPlayer
@@ -90,7 +102,7 @@ class MediaPlayer extends React.Component {
           width={'0px'}
           config={{ file: { forceAudio: true } }}
           // Currently populated with a sample URL.
-          url={"https://p.scdn.co/mp3-preview/6aba2f4e671ffe07fd60807ca5fef82d48146d4c?cid=1cef747d7bdf4c52ac981490515bda71"} /> 
+          url={mediaUrl} /> 
       </div>
     )
   }
