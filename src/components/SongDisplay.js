@@ -1,10 +1,13 @@
 import React from "react"
+import "./songDisplay.css"
 
 const SongDisplay = ({ trackDetails }) => (
-	<div>
-		<p>{trackDetails.trackName}</p>
-		<p>{trackDetails.artistName}</p>
-		<img src={trackDetails.artworkUrl} width="200" alt="artwork"/>
+	<div className="song-container">
+		<img src={trackDetails.artworkUrl} alt="artwork" className="artwork"/>
+		<div className="track-details">
+			<p className="track-name">{trackDetails.trackName}</p>
+			<p className="artist-name">{trackDetails.artistName}</p>
+		</div>
 	</div>
 )
 

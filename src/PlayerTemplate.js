@@ -5,6 +5,8 @@ import PlayController from "./components/PlayController.js"
 import SongDisplay from "./components/SongDisplay.js"
 import SelectionController from "./components/SelectionController.js"
 
+import "./player.css"
+
 /*
 The goal is to create an audio player, similar to what you'd find at the bottom of the Spotify app.
 All our media files are accessible via URLs, as you can see below in `this.tracks`. We're using a
@@ -84,11 +86,12 @@ class Player extends React.Component {
     const {playing, currentTrackIndex} = this.state
     const currentTrack = this.getCurrentTrack()
     return (
-      <div>
-        <MediaPlayer playing={playing} mediaUrl={currentTrack.mediaUrl}/>
-        <PlayController onClick={this.pausePlay} label={playing ? "Pause" : "Play"}/>
+      <div className="player-container">
         <SongDisplay trackDetails={currentTrack}/>
-        <SelectionController nextTrack={this.nextTrack} prevTrack={this.prevTrack}/>
+        <div style={{marginLeft: "5em", display: "flex"}}>
+        <SelectionController nextTrack={this.nextTrack} prevTrack={this.prevTrack} pausePlay={this.pausePlay} label={playing ? "Pause" : "Play"}/>
+        </div>
+        <MediaPlayer playing={playing} mediaUrl={currentTrack.mediaUrl}/>
       </div>
     );
   }

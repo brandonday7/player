@@ -1,0 +1,10 @@
+.controller-container {
+	display: flex;
+	justify-content: space-between;
+	width: 10em;
+}
+
+p {
+	color: #adadad;
+	cursor: pointer;
+}
