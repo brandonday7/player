@@ -56,7 +56,8 @@ class Player extends React.Component {
 
     this.state = {
       playing: false,
-      currentTrackIndex: 0
+      currentTrackIndex: 0,
+      finalTrackIndex: this.tracks.length - 1
     }
   }
 
@@ -69,16 +70,16 @@ class Player extends React.Component {
   }
 
   nextTrack = () => {
-    const { currentTrackIndex } = this.state
-    const lastTrackIndex = this.tracks.length - 1
-    const nextTrackIndex = currentTrackIndex !== lastTrackIndex ? currentTrackIndex + 1 : 0
+    const { currentTrackIndex, finalTrackIndex } = this.state
+    const nextTrackIndex = currentTrackIndex !== finalTrackIndex ? currentTrackIndex + 1 : 0
     this.setState({ currentTrackIndex: nextTrackIndex })
   }
 
   prevTrack = () => {
-    const { currentTrackIndex } = this.state
-    const lastTrackIndex = this.tracks.length - 1
-    const prevTrackIndex = currentTrackIndex ? currentTrackIndex - 1 : lastTrackIndex
+    const { currentTrackIndex, finalTrackIndex } = this.state
+    // if current track index is non-zero, move to last track
+    // otherwise, loop back to first track in list
+    const prevTrackIndex = currentTrackIndex ? currentTrackIndex - 1 : finalTrackIndex
     this.setState({ currentTrackIndex: prevTrackIndex })
   }
 
