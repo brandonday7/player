@@ -73,6 +73,13 @@ class Player extends React.Component {
     this.setState({ currentTrackIndex: nextTrackIndex })
   }
 
+  prevTrack = () => {
+    const { currentTrackIndex } = this.state
+    const lastTrackIndex = this.tracks.length - 1
+    const prevTrackIndex = currentTrackIndex ? currentTrackIndex - 1 : lastTrackIndex
+    this.setState({ currentTrackIndex: prevTrackIndex })
+  }
+
   render() {
     const {playing, currentTrackIndex} = this.state
     const currentTrack = this.getCurrentTrack()
