@@ -89,7 +89,7 @@ class Player extends React.Component {
       <div className="player-container">
         <SongDisplay trackDetails={currentTrack}/>
         <div style={{marginLeft: "5em", display: "flex"}}>
-        <SelectionController nextTrack={this.nextTrack} prevTrack={this.prevTrack} pausePlay={this.pausePlay} label={playing ? "Pause" : "Play"}/>
+        <SelectionController nextTrack={this.nextTrack} prevTrack={this.prevTrack} pausePlay={this.pausePlay} pause={playing}/>
         </div>
         <MediaPlayer playing={playing} mediaUrl={currentTrack.mediaUrl}/>
       </div>
@@ -111,7 +111,6 @@ class MediaPlayer extends React.Component {
           height={'0px'}
           width={'0px'}
           config={{ file: { forceAudio: true } }}
-          // Currently populated with a sample URL.
           url={mediaUrl} /> 
       </div>
     )

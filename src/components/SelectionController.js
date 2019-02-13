@@ -3,10 +3,10 @@ import PlayController from "./PlayController"
 
 import "./controller.css"
 
-const SelectionController = ({ nextTrack, prevTrack, pausePlay, label}) => (
+const SelectionController = ({ nextTrack, prevTrack, pausePlay, pause}) => (
 	<div className="controller-container">
 		<p onClick={prevTrack}>Previous</p>
-		<PlayController onClick={pausePlay} label={label}/>
+		<PlayController onClick={pausePlay} pause={pause}/>
 		<p onClick={nextTrack}>Next</p>
 	</div>
 )
