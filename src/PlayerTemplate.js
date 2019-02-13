@@ -1,6 +1,7 @@
 import React from "react"
 import { render } from "react-dom"
 import ReactPlayer from 'react-player'
+import PlayController from "./PlayController.js"
 
 /*
 The goal is to create an audio player, similar to what you'd find at the bottom of the Spotify app.
@@ -29,6 +30,9 @@ Notes:
 class Player extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      playing: false
+    }
     // This is the 'playlist' of tracks that we're playing/pausing, navigating through, etc.
     this.tracks = [
       {
@@ -49,10 +53,15 @@ class Player extends React.Component {
       },
     ];
   }
+
+  pausePlay = () => this.setState({ playing: !this.state.playing })
+
   render() {
+    const {playing} = this.state
     return (
       <div>
-        <MediaPlayer />
+        <MediaPlayer playing={playing}/>
+        <PlayController onClick={this.pausePlay} label={playing ? "Pause" : "Play"}/>
       </div>
     );
   }
@@ -63,11 +72,12 @@ Library documentation: https://www.npmjs.com/package/react-player
 */
 class MediaPlayer extends React.Component {
   render() {
+    const {playing} = this.props
     return (
       <div>
         <ReactPlayer
           ref="reactPlayer"
-          playing={true}
+          playing={playing}
           height={'0px'}
           width={'0px'}
           config={{ file: { forceAudio: true } }}
