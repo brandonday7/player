@@ -2,12 +2,12 @@
 	display: flex;
 	align-items: center;
 	width: 15em;
-	max-width: 30vw;
+	max-width: 34vw;
 }
 
 .artwork {
-	width: 60px;
-	height: 60px;
+	width: 70px;
+	height: 70px;
 	-webkit-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
 	-moz-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
 	box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
