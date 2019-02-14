@@ -24,7 +24,6 @@
 }
 
 .slide-total {
-	margin: 0 1em;
 	width: 20em;
 	height: 0.4em;
 	border-radius: 50px;
@@ -33,7 +32,6 @@
 
 .slide-progress {
 	height: 0.4em;
-	width: 10em;
 	border-radius: 50px;
 	background-color: #adadad;
 	position: absolute;
