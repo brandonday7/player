@@ -20,4 +20,4 @@ npm start
 
 Then, go to http://localhost:3000 and you should see a screen like this:
 
-<img src="" alt="examples" width="400"/>
+<img src="https://raw.github.com/brandonday7/player/master/src/images/arcticMonkeys.png" alt="examples" width="700"/>
