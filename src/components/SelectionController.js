@@ -8,7 +8,7 @@ import { faBackward } from '@fortawesome/free-solid-svg-icons'
 
 import "./controller.css"
 
-const SelectionController = ({ nextTrack, prevTrack, pausePlay, playing}) => (
+const SelectionController = ({ nextTrack, prevTrack, pausePlay, playing, seek}) => (
 	<div className="controller-container">
 		<div className="buttons-container">
 			<FontAwesomeIcon className="icon change-song" onClick={prevTrack} icon={faBackward}/>
@@ -18,7 +18,7 @@ const SelectionController = ({ nextTrack, prevTrack, pausePlay, playing}) => (
 		<Slider
 		  direction={Direction.HORIZONTAL}
 		  isEnabled
-		  onChange={newValue => console.log(`clicked at ${newValue}`)}
+		  onChange={newValue => seek(newValue)}
 		  onChangeStart={pausePlay}
 		  onChangeEnd={pausePlay}
   >
