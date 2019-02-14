@@ -1,9 +1,6 @@
 import React, { Component } from "react"
-import { render } from "react-dom"
-import ReactPlayer from 'react-player'
-import PlayController from "./components/PlayController.js"
+import MediaPlayer from "./MediaPlayer"
 import SongDisplay from "./components/SongDisplay.js"
-import SelectionController from "./components/SelectionController.js"
 
 import "./styles/player.css"
 
@@ -60,7 +57,7 @@ class Player extends Component {
   }
 
   render() {
-    const {playing, currentTrackIndex, currentTime, trackDuration} = this.state
+    const { playing } = this.state
     const currentTrack = this.getCurrentTrack()
     return (
       <div className="player-container">
@@ -77,54 +74,5 @@ class Player extends Component {
   }
 }
 
-/*
-Library documentation: https://www.npmjs.com/package/react-player
-*/
-class MediaPlayer extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      duration: 0,
-      currentTime: 0
-    }
-  }
-
-  update = (type, val) => this.setState({[type]: val})
-
-  ref = player => {
-    this.player = player
-  }
-
-  seek = toTime => this.player.seekTo(toTime)
-
-  render() {
-    const {playing, mediaUrl, nextTrack, prevTrack, pausePlay} = this.props
-    const { duration, currentTime } = this.state
-    return (
-      <div>
-        <SelectionController 
-          nextTrack={nextTrack} 
-          prevTrack={prevTrack} 
-          pausePlay={pausePlay} 
-          playing={playing} 
-          seek={this.seek}
-          currentTime={currentTime}
-          duration={duration}
-        />
-        <ReactPlayer
-          ref={this.ref}
-          playing={playing}
-          height={'0px'}
-          width={'0px'}
-          config={{ file: { forceAudio: true } }}
-          url={mediaUrl} 
-          onSeek={newTime => this.update("currentTime", Math.ceil(newTime))}
-          onProgress={data => this.update("currentTime", Math.ceil(data.playedSeconds))} 
-          onDuration={duration => this.update("duration", Math.ceil(duration))}
-        />
-      </div>
-    )
-  }
-}
 
 export default Player;

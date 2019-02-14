@@ -1,8 +1,11 @@
+.media-player-container {
+	width: 50vw;
+}
+
 .controller-container {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	margin-right: 7em;
 }
 
 .buttons-container {
