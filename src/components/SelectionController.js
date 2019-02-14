@@ -10,9 +10,17 @@ import "./controller.css"
 const SelectionController = ({ nextTrack, prevTrack, pausePlay, playing, seek, currentTime, duration}) => (
 	<div className="controller-container">
 		<div className="buttons-container">
-			<FontAwesomeIcon className="icon change-song" onClick={prevTrack} icon={faBackward}/>
+			<FontAwesomeIcon 
+				className="icon change-song" 
+				onClick={prevTrack} 
+				icon={faBackward}
+			/>
 			<PlayController onClick={pausePlay} playing={playing}/>
-			<FontAwesomeIcon className="icon change-song" onClick={nextTrack} icon={faForward}/>
+			<FontAwesomeIcon 
+				className="icon change-song" 
+				onClick={nextTrack} 
+				icon={faForward}
+			/>
 		</div>
 
 		<SliderContainer

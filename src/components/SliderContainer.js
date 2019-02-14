@@ -12,7 +12,7 @@ const convertTime = time => {
 
 const SliderContainer = ({ pausePlay, seek, currentTime, duration}) => (
 		<div className="slide-render-container">
-			<p className="time-text">{convertTime(currentTime)}</p>
+			<p className="time-text left">{convertTime(currentTime)}</p>
 			<Slider
 		  	direction={Direction.HORIZONTAL}
 		  	isEnabled
@@ -22,7 +22,7 @@ const SliderContainer = ({ pausePlay, seek, currentTime, duration}) => (
   		>
   			<SlideRender currentTime={currentTime} duration={duration}/>
 			</Slider>
-			<p className="time-text">{convertTime(duration - currentTime)}</p>
+			<p className="time-text right">{convertTime(duration - currentTime)}</p>
 		</div>
 )
 

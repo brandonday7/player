@@ -12,6 +12,12 @@
 	width: 10em;
 }
 
+.icon {
+	color: #adadad;
+	cursor: pointer;
+	font-size: 200%;
+}
+
 .change-song {
 	font-size: 150%;
 }
@@ -20,7 +26,6 @@
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	margin-top: 1em;
 }
 
 .slide-total {
@@ -40,4 +45,12 @@
 .time-text {
 	color: #adadad;
 	font-size: 90%;
+}
+
+.left {
+	margin-right: 1em;
+}
+
+.right {
+	margin-left: 1em;
 }
