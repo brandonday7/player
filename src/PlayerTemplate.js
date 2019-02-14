@@ -24,7 +24,7 @@ class Player extends Component {
         artworkUrl: "https://cps-static.rovicorp.com/3/JPG_500/MI0003/626/MI0003626958.jpg?partner=allrovi.com",
         mediaUrl: "https://p.scdn.co/mp3-preview/9ec5fce4b39656754da750499597fcc1d2cc82e5?cid=1cef747d7bdf4c52ac981490515bda71",
         durationMilliseconds: 30000
-      },
+      }
     ];
 
     this.state = {
