@@ -24,6 +24,7 @@
 }
 
 .slide-total {
+	margin: 0 1em;
 	width: 20em;
 	height: 0.4em;
 	border-radius: 50px;
@@ -36,4 +37,9 @@
 	border-radius: 50px;
 	background-color: #adadad;
 	position: absolute;
+}
+
+.time-text {
+	color: #adadad;
+	font-size: 90%;
 }

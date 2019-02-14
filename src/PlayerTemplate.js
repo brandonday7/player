@@ -109,6 +109,7 @@ class MediaPlayer extends Component {
           playing={playing} 
           seek={this.seek}
           currentTime={currentTime}
+          duration={duration}
         />
         <ReactPlayer
           ref={this.ref}
@@ -119,6 +120,7 @@ class MediaPlayer extends Component {
           url={mediaUrl} 
           onSeek={newTime => this.update("currentTime", Math.ceil(newTime))}
           onProgress={data => this.update("currentTime", Math.ceil(data.playedSeconds))} 
+          onDuration={duration => this.update("duration", Math.ceil(duration))}
         />
       </div>
     )

@@ -8,7 +8,7 @@ import { faBackward } from '@fortawesome/free-solid-svg-icons'
 
 import "./controller.css"
 
-const SelectionController = ({ nextTrack, prevTrack, pausePlay, playing, seek, currentTime}) => (
+const SelectionController = ({ nextTrack, prevTrack, pausePlay, playing, seek, currentTime, duration}) => (
 	<div className="controller-container">
 		<div className="buttons-container">
 			<FontAwesomeIcon className="icon change-song" onClick={prevTrack} icon={faBackward}/>
@@ -22,7 +22,7 @@ const SelectionController = ({ nextTrack, prevTrack, pausePlay, playing, seek, c
 		  onChangeStart={pausePlay}
 		  onChangeEnd={pausePlay}
   >
-  	<SlideRender currentTime={currentTime}/>
+  	<SlideRender currentTime={currentTime} duration={duration}/>
 		</Slider>
 	</div>
 )
