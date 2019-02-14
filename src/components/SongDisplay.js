@@ -1,5 +1,5 @@
 import React from "react"
-import "./songDisplay.css"
+import "../styles/songDisplay.css"
 
 const SongDisplay = ({ trackDetails }) => (
 	<div className="song-container">

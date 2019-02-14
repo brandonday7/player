@@ -1,5 +1,5 @@
 import React from "react"
-import "./controller.css"
+import "../styles/controller.css"
 
 const SlideRender = ({currentTime, duration}) => (
 	<div className="slide-total">

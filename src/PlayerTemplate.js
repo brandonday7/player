@@ -5,7 +5,7 @@ import PlayController from "./components/PlayController.js"
 import SongDisplay from "./components/SongDisplay.js"
 import SelectionController from "./components/SelectionController.js"
 
-import "./player.css"
+import "./styles/player.css"
 
 class Player extends Component {
   constructor(props) {

@@ -2,7 +2,7 @@ import React from "react"
 import SlideRender from "./SlideRender"
 import { Slider, Direction } from 'react-player-controls'
 
-import "./controller.css"
+import "../styles/controller.css"
 
 const convertTime = time => {
 	const mins = Math.floor(time/60)

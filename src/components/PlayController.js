@@ -2,7 +2,7 @@ import React from "react"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPauseCircle } from '@fortawesome/free-solid-svg-icons'
 import { faPlayCircle } from '@fortawesome/free-solid-svg-icons'
-import "./controller.css"
+import "../styles/controller.css"
 
 const PlayController = ({ playing, onClick}) => (
 	<FontAwesomeIcon 
