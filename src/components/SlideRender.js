@@ -1,9 +1,12 @@
 import React from "react"
 import "./controller.css"
 
-const SlideRender = ({}) => (
-	<div className="slide-render-container">
-	<div className="slide-progress"></div>
+const SlideRender = ({currentTime}) => (
+	<div>
+		<p>{currentTime}</p>
+		<div className="slide-render-container">
+			<div className="slide-progress"></div>
+		</div>
 	</div>
 )
 
