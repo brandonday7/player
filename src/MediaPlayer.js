@@ -48,6 +48,7 @@ class MediaPlayer extends Component {
           onSeek={newTime => this.update("currentTime", Math.ceil(newTime))}
           onProgress={data => this.update("currentTime", Math.ceil(data.playedSeconds))} 
           onDuration={duration => this.update("duration", Math.ceil(duration))}
+          onEnded={nextTrack}
         />
       </div>
     )

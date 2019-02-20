@@ -27,10 +27,11 @@ class Player extends Component {
       }
     ];
 
+    this.finalTrackIndex = this.tracks.length - 1
+
     this.state = {
       playing: false,
-      currentTrackIndex: 0,
-      finalTrackIndex: this.tracks.length - 1,
+      currentTrackIndex: 0
     }
   }
 
@@ -43,16 +44,16 @@ class Player extends Component {
   }
 
   nextTrack = () => {
-    const { currentTrackIndex, finalTrackIndex } = this.state
-    const nextTrackIndex = currentTrackIndex !== finalTrackIndex ? currentTrackIndex + 1 : 0
+    const { currentTrackIndex } = this.state
+    const nextTrackIndex = currentTrackIndex !== this.finalTrackIndex ? currentTrackIndex + 1 : 0
     this.setState({ currentTrackIndex: nextTrackIndex })
   }
 
   prevTrack = () => {
-    const { currentTrackIndex, finalTrackIndex } = this.state
+    const { currentTrackIndex } = this.state
     // if current track index is non-zero, move to last track
     // otherwise, loop back to first track in list
-    const prevTrackIndex = currentTrackIndex ? currentTrackIndex - 1 : finalTrackIndex
+    const prevTrackIndex = currentTrackIndex ? currentTrackIndex - 1 : this.finalTrackIndex
     this.setState({ currentTrackIndex: prevTrackIndex })
   }
 
