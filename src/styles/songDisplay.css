@@ -5,6 +5,12 @@
 	max-width: 34vw;
 }
 
+@media (max-width: 700px) {
+	.song {
+		max-width: 90vw;
+	}
+}
+
 .song__artwork {
 	width: 70px;
 	height: 70px;
