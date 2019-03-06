@@ -2,10 +2,10 @@ import React from "react"
 import "../styles/controller.css"
 
 const SlideRender = ({currentTime, duration}) => (
-	<div className="slide-total">
+	<div className="slider">
 		<div 
 			style={{width: `${20*currentTime/duration}em`}} 
-			className="slide-progress">
+			className="slider__progress">
 		</div>
 	</div>
 )

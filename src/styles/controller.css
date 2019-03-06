@@ -2,14 +2,14 @@
 	width: 60vw;
 }
 
-.controller-container {
+.controller {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	margin-top: 1em;
 }
 
-.buttons-container {
+.controller__buttons {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -22,39 +22,39 @@
 	font-size: 200%;
 }
 
-.change-song {
+.icon--large {
 	font-size: 150%;
 }
 
-.slide-render-container {
+.seeker {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 }
 
-.slide-total {
+.slider {
 	width: 20em;
 	height: 0.4em;
 	border-radius: 50px;
 	background-color: #404040;
 }
 
-.slide-progress {
+.slider__progress {
 	height: 0.4em;
 	border-radius: 50px;
 	background-color: #adadad;
 	position: absolute;
 }
 
-.time-text {
+.seeker__time {
 	color: #adadad;
 	font-size: 90%;
 }
 
-.left {
+.time--left {
 	margin-right: 1em;
 }
 
-.right {
+.time--right {
 	margin-left: 1em;
 }

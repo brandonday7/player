@@ -2,11 +2,11 @@ import React from "react"
 import "../styles/songDisplay.css"
 
 const SongDisplay = ({ trackDetails }) => (
-	<div className="song-container">
-		<img src={trackDetails.artworkUrl} alt="artwork" className="artwork"/>
-		<div className="track-details">
-			<p className="track-name">{trackDetails.trackName}</p>
-			<p className="artist-name">{trackDetails.artistName}</p>
+	<div className="song">
+		<img src={trackDetails.artworkUrl} alt="artwork" className="song__artwork"/>
+		<div className="song__details">
+			<p className="song__name">{trackDetails.trackName}</p>
+			<p className="song__artist">{trackDetails.artistName}</p>
 		</div>
 	</div>
 )
