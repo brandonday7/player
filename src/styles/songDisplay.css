@@ -1,11 +1,11 @@
-.song-container {
+.song {
 	display: flex;
 	align-items: center;
 	width: 15em;
 	max-width: 34vw;
 }
 
-.artwork {
+.song__artwork {
 	width: 70px;
 	height: 70px;
 	-webkit-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
@@ -13,18 +13,18 @@
 	box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
 }
 
-.track-details {
+.song__details {
 	display: flex;
 	flex-direction: column;
 	margin-left: 1em;
 }
 
-.track-name {
+.song__name {
 	color: white;
 	margin-bottom: 0.2em;
 }
 
-.artist-name {
+.song__artist {
 	color: #adadad;
 	margin-top: 0.2em;
 }
